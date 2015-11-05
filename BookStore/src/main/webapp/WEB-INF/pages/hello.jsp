@@ -5,18 +5,16 @@
     <title>Welcome</title>
 </head>
 <body>
-<center>
-    <h3>
-        <a>Welcome to The Book Store</a>
-    </h3>
+<h3 align="center">
+    <a>Welcome to The Book Store</a>
+</h3>
 
-    <h3>
-        <a href="viewForm">Book List</a>
-    </h3>
+<h3 align="center">
+    <a href="viewForm">Book List</a>
+</h3>
 
-    <h3>
-        <a href="addForm">Add Book</a>
-    </h3>
-</center>
+<h3 align="center">
+    <a href="addForm">Add Book</a>
+</h3>
 </body>
 </html>

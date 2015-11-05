@@ -1,35 +1,44 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<%@ page contentType="text/html; charset=UTF-8" %>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-  <title>View Book List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>View Book List</title>
 </head>
+
 <body>
-<center>
+<h1> All the Books in the Books Store</h1>
+
+<br>
+
+<table align="center" border="2" width="60%">
+    <tr align="center">
+
+        <td> ISBN Number</td>
+        <td> Title</td>
+        <td> Author</td>
+        <td> Genre</td>
+    </tr>
 
 
+    <c:forEach items="${booksForm}" var="bookD">
+        <tr>
 
+            <td> ${bookD.isbn}</td>
+            <td> ${bookD.title} </td>
+            <td> ${bookD.author} </td>
+            <td> ${bookD.genre} </td>
+        </tr>
 
-    ${booksForm}
+    </c:forEach>
 
-    <table>
-        <c:forEach items="${booksForm}" var="bookD"  >
-            <tr>
+</table>
+<p align="center">
+    <a href="/BookStore">Home</a>
 
-                <tb>  ${bookD.isbn}</tb>
-                <tb>  ${bookD.title} </tb>
-                <tb>  ${bookD.author} </tb>
-                <tb> ${bookD.genre} </tb>
+</p>
 
-            </tr>
-        </c:forEach>
-    </table>
-
-
-
-</center>
-
-
-    </body>
+</body>
 </html>

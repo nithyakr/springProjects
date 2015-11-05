@@ -1,20 +1,19 @@
 package com.springapp.mvc;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 /**
+ * Book Class to store book details as Objects
+ *
  * Created by nivethika on 04/11/15.
  */
-@Component
 public class Book {
+
     private String isbn;
     private String title;
     private String author;
     private String genre;
 
 
-    public Book(){
+    public Book() {
 
     }
 
@@ -56,21 +55,6 @@ public class Book {
     public void setAuthor(String author) {
         this.author = author;
     }
-    public Book addBook(Book bk){
-        Book bookD = new Book();
-        bookD.setIsbn(bk.getIsbn());
-        bookD.setAuthor(bk.getAuthor());
-        bookD.setTitle(bk.getTitle());
-        bookD.setGenre(bk.getGenre());
-        return bookD;
-    }
-
-
-    //@Override
-  // public String toString(){
-   //     return (isbn+"\t"+title +"\t"+author+"\t"+genre);
-  //  }
-
 
 
 }

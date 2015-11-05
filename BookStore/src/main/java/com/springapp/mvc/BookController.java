@@ -11,55 +11,54 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Controller class containing required controls for form actions
+ *
  * Created by nivethika on 04/11/15.
  */
 @Controller
-public class BookAddController {
+public class BookController {
 
 
     private static List<Book> bookList = new ArrayList();
 
     static {
-        bookList.add(new Book("12345678", "Obama", "barack.o@whitehouse.com", "147-852-965"));
-        bookList.add(new Book("12345678", "Bush", "george.b@whitehouse.com", "785-985-652"));
-        bookList.add(new Book("12345678", "Clinton", "bill.c@whitehouse.com", "236-587-412"));
-        bookList.add(new Book("Ronald", "Reagan", "ronald.r@whitehouse.com", "369-852-452"));
+        bookList.add(new Book("1234567890", "Harry Potter", "J.K.Rowling", "Fiction"));
+        bookList.add(new Book("1234755678", "Sherlock Holmes", "Author Connon Doyle", "Fiction"));
     }
 
 
-
-    @RequestMapping(path="/addForm" , method = RequestMethod.GET)
+    @RequestMapping(path = "/addForm", method = RequestMethod.GET)
     public ModelAndView addBookDetails() {
         Book bk = new Book();
         ModelAndView mv = new ModelAndView("addForm");
         mv.addObject("book", bk);
-
-        return mv ;
+        return mv;
     }
 
 
-
-    @RequestMapping(path="/addBook" , method= RequestMethod.POST)
+    @RequestMapping(path = "/addBook", method = RequestMethod.POST)
     public ModelAndView booksSubmit(@ModelAttribute("book") Book bk) {
 
-       bookList.add(bk);
+        bookList.add(bk);
 
         ModelAndView mv = new ModelAndView("viewForm");
-        mv.addObject("booksForm",bookList);
+        mv.addObject("booksForm", bookList);
 
-        return mv ;
+        return mv;
     }
 
 
-
-    @RequestMapping(path="/viewForm" , method = RequestMethod.GET)
-    public ModelAndView viewBookDetails() {
+    @RequestMapping(path = "/viewForm", method = RequestMethod.GET)
+    public ModelAndView viewAddedBooks() {
         ModelAndView mv = new ModelAndView("viewForm");
-       mv.addObject("booksForm", bookList);
-        return mv ;
+        mv.addObject("booksForm", bookList);
+        return mv;
     }
 
-
+    @RequestMapping(path = "/", method = RequestMethod.GET)
+    public String setHomePage(ModelMap model) {
+        return "hello";
+    }
 
 
 }

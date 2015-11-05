@@ -11,17 +11,18 @@ import javax.annotation.PreDestroy;
  */
 @Component
 public class TMessage {
-    private Message mg;
 
     @Autowired
-    public TMessage(Message mg){
+    private Message mg;
+
+    public TMessage(){
         System.out.println("Inside TMessage constructor." );
         this.mg=mg;
 
     }
 
   public void displayMessage(){
-      mg.getMessage();
+      System.out.println(mg.getGreeting());
   }
 
     @PostConstruct

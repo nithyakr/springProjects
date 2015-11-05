@@ -12,12 +12,12 @@ import javax.annotation.PreDestroy;
 @Component
 public class Message {
 
+    private String greeting;
+
 
     public Message(){
-        System.out.println("Inside Message constructor." );
    }
 
-    @PostConstruct
     public void init(){
         System.out.println("Initalizing Message Class" );
 
@@ -33,7 +33,12 @@ public class Message {
         System.out.println("Inside getMessage Method in Message Class." );
            }
 
+    public String getGreeting() {
+        return greeting;
+    }
 
-
+    public void setGreeting(String greeting) {
+        this.greeting = greeting;
+    }
 }
 
