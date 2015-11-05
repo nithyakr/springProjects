@@ -1,5 +1,4 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<jsp:useBean id="Book" class="com.springapp.mvc.Book" />
 
 <html>
 <head>
@@ -15,14 +14,13 @@
     ${booksForm}
 
     <table>
-        <c:forEach items="${booksForm}" var="${Book}"  >
+        <c:forEach items="${booksForm}" var="bookD"  >
             <tr>
-                <%Book.getIsbn(); %>
 
                 <tb>  ${bookD.isbn}</tb>
-                <tb>  ${book.title} </tb>
-                <tb>  ${book.author} </tb>
-                <tb> ${book.genre} </tb>
+                <tb>  ${bookD.title} </tb>
+                <tb>  ${bookD.author} </tb>
+                <tb> ${bookD.genre} </tb>
 
             </tr>
         </c:forEach>
@@ -31,5 +29,7 @@
 
 
 </center>
-</body>
+
+
+    </body>
 </html>

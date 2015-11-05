@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 /**
  * Created by nivethika on 04/11/15.
  */
-
+@Component
 public class Book {
     private String isbn;
     private String title;

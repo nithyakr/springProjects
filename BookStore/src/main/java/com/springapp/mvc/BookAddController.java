@@ -51,18 +51,12 @@ public class BookAddController {
     }
 
 
-/*
+
     @RequestMapping(path="/viewForm" , method = RequestMethod.GET)
     public ModelAndView viewBookDetails() {
         ModelAndView mv = new ModelAndView("viewForm");
        mv.addObject("booksForm", bookList);
         return mv ;
-    }
-*/
-    @RequestMapping(path="/viewForm" ,method = RequestMethod.GET)
-    public String viewBookDetails2(ModelMap model) {
-        model.addAttribute("booksForm", bookList);
-       return "viewForm";
     }
 
 
