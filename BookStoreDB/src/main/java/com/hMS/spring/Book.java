@@ -7,7 +7,7 @@ package com.hMS.spring;
  */
 public class Book {
 
-    private int id = 0;
+
     private String isbn;
     private String title;
     private String author;
@@ -17,21 +17,14 @@ public class Book {
     public Book() {
     }
 
-    public Book(String author, String genre, int id, String isbn, String title) {
+    public Book(String author, String genre, String isbn, String title) {
         this.author = author;
         this.genre = genre;
-        this.id = id;
         this.isbn = isbn;
         this.title = title;
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getAuthor() {
         return author;
@@ -69,7 +62,6 @@ public class Book {
     public String toString() {
         return "Book{" +
                 "author='" + author + '\'' +
-                ", id='" + id + '\'' +
                 ", isbn='" + isbn + '\'' +
                 ", title='" + title + '\'' +
                 ", genre='" + genre + '\'' +
