@@ -12,7 +12,7 @@
 
 
 <body>
-
+<h3 align="center"> ${message}</h3>
 <form:form action="/addBook" method="post" modelAttribute="book">
 
     <table border="0" align="center">

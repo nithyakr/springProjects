@@ -10,7 +10,7 @@
 
 <body>
 <h1> All the Books in the Books Store</h1>
-
+<h3 align="center"> ${message}</h3>
 <br>
 
 <table align="center" border="2" width="60%">

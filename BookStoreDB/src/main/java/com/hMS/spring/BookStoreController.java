@@ -36,12 +36,43 @@ public class BookStoreController {
 
     @RequestMapping(path = "/addBook", method = RequestMethod.POST)
     public ModelAndView booksSubmit(@ModelAttribute("book") Book bk) {
-        bookDAOImpl.save(bk);
+        boolean isThere=true;
+        isThere = bookDAOImpl.getBook(bk.getIsbn());
 
-        ModelAndView mv = new ModelAndView("viewForm");
-        mv.addObject("booksForm", bookDAOImpl.getAll());
+        if(bk.getTitle().isEmpty()||bk.getAuthor().isEmpty()||bk.getGenre().isEmpty() ||bk.getIsbn().isEmpty()){
+            Book book = new Book();
+            ModelAndView mv = new ModelAndView("addForm");
+            mv.addObject("book", book);
+            mv.addObject("message", "Errors in input , no null value allowed.");
 
-        return mv;
+            return mv;
+        }
+        else   if((bk.getIsbn().length()!=10)||(bk.getIsbn().length()!=10))
+        {
+
+            Book book = new Book();
+            ModelAndView mv = new ModelAndView("addForm");
+            mv.addObject("book", book);
+            mv.addObject("message", "Errors in input of ISBN Number. Could only take 10/13 characters");
+
+            return mv;
+        }
+        else if(isThere)
+        {
+
+            ModelAndView mv = new ModelAndView("viewForm");
+            mv.addObject("booksForm", bookDAOImpl.getAll());
+            mv.addObject("message","Book is Already in the database");
+            return mv;
+        }else {
+            bookDAOImpl.save(bk);
+            ModelAndView mv = new ModelAndView("viewForm");
+            mv.addObject("booksForm", bookDAOImpl.getAll());
+
+            return mv;
+        }
+
+
     }
 
 

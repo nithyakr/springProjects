@@ -37,6 +37,16 @@ public class BookDAOImpl implements BookDAO {
         return this.jdbcTemplate.query( "select Isbn,Title,Author,Genre from bookDetails", new BookMapper());
 
     }
+
+    public boolean getBook(String isbn) {
+
+       int rowCount= this.jdbcTemplate.queryForObject("select count(*) from bookDetails where Isbn = ?",Integer.class, isbn);
+        if (rowCount>0)
+                return true;
+        else
+            return false;
+    }
+
     private static final class BookMapper implements RowMapper<Book> {
 
         public Book mapRow(ResultSet rs, int rowNum) throws SQLException {
