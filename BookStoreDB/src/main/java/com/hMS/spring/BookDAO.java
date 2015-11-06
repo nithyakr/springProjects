@@ -10,7 +10,6 @@ import java.util.List;
  */
 public interface BookDAO {
     public void save(Book book);
-
     public List<Book> getAll();
     public boolean getBook(String isbn);
 

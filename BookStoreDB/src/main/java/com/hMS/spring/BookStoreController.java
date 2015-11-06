@@ -40,9 +40,9 @@ public class BookStoreController {
         isThere = bookDAOImpl.getBook(bk.getIsbn());
 
         if(bk.getTitle().isEmpty()||bk.getAuthor().isEmpty()||bk.getGenre().isEmpty() ||bk.getIsbn().isEmpty()){
-            Book book = new Book();
+
             ModelAndView mv = new ModelAndView("addForm");
-            mv.addObject("book", book);
+            mv.addObject("book", bk);
             mv.addObject("message", "Errors in input , no null value allowed.");
 
             return mv;
@@ -50,9 +50,8 @@ public class BookStoreController {
         else   if((bk.getIsbn().length()!=10)||(bk.getIsbn().length()!=10))
         {
 
-            Book book = new Book();
             ModelAndView mv = new ModelAndView("addForm");
-            mv.addObject("book", book);
+            mv.addObject("book", bk);
             mv.addObject("message", "Errors in input of ISBN Number. Could only take 10/13 characters");
 
             return mv;
