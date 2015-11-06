@@ -1,10 +1,13 @@
 package com.springapp.mvc;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Book Class to store book details as Objects
  *
  * Created by nivethika on 04/11/15.
  */
+@Component
 public class Book {
 
     private String isbn;

@@ -1,5 +1,6 @@
 package com.springapp.mvc;
 
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,6 +17,7 @@ import java.util.List;
  * Created by nivethika on 04/11/15.
  */
 @Controller
+@ComponentScan
 public class BookController {
 
 
