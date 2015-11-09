@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-
+import org.apache.log4j.Logger;
 /**
  * Controller class to controll form submissions and url requests.
  * <p>
@@ -19,10 +19,13 @@ public class BookStoreController {
 
     @Resource(name = "bookDAO")
     private BookDAOImpl bookDAOImpl;
+    Logger logger = Logger.getLogger(BookStoreController.class);
 
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public String printWelcome(ModelMap model) {
+
+        logger.info("This is an info log entry");
         return "hello";
     }
 
@@ -77,8 +80,7 @@ public class BookStoreController {
 
     @RequestMapping(path = "/viewForm", method = RequestMethod.GET)
     public ModelAndView viewAddedBooks() {
-
-        ModelAndView mv = new ModelAndView("viewForm");
+ ModelAndView mv = new ModelAndView("viewForm");
         mv.addObject("booksForm", bookDAOImpl.getAll());
 
         return mv;
