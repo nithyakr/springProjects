@@ -3,6 +3,7 @@ package com.hMS.core;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -17,14 +18,15 @@ import java.util.List;
  * <p>
  * Created by nivethika on 06/11/15.
  */
-@Repository
+@Component
 public class BookDAOImpl implements BookDAO {
 
+    @Autowired
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplate;
 
 
-    @Autowired
+
     public void setDataSource(DataSource dataSource) {
 
         this.dataSource = dataSource;
@@ -32,11 +34,13 @@ public class BookDAOImpl implements BookDAO {
 
     }
 
-    public BookDAOImpl() {
 
+    public BookDAOImpl(){
 
 
     }
+
+
 
     public void save(Book book) {
 
@@ -46,6 +50,7 @@ public class BookDAOImpl implements BookDAO {
 
     @Override
     public List<Book> getAll() {
+        jdbcTemplate = new JdbcTemplate(dataSource);
 
         return this.jdbcTemplate.query( "select Isbn,Title,Author,Genre from bookDetails", new BookMapper());
 

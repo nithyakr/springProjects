@@ -15,5 +15,4 @@
         <import resource="classpath:beans.xml" />
 
 
-
 </beans>
